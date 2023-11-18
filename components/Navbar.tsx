@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 // import Dropdown from './Dropdown'
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Dropdown from "./Dropdown";
 
 interface User {
   photoURL: string;
@@ -15,7 +16,8 @@ export default function Navbar() {
 //   const provider = new GoogleAuthProvider();
 //   const router = useRouter();
 
-//   const [user, setUser] = useState<User | null>(null);
+  // const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState(null);
 
 //   useEffect(() => {
 //     const accessToken = userAccessToken();
@@ -57,7 +59,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-      {/* <div className={`md:flex justify-start ${user != null ? "w-[30%]" : "w-[35%]"} h-full text-sm hidden`}>
+      <div className={`md:flex justify-start ${user != null ? "w-[30%]" : "w-[35%]"} h-full text-sm hidden`}>
         <div className='py-3 px-2'>
           <Dropdown title='Organize' items={['Why The Spot', 'Pricing', 'Resources']} />
         </div>
@@ -65,22 +67,22 @@ export default function Navbar() {
           <Dropdown title='Help' items={['Find your tickets', 'Contact an event organizer', 'Visit the help center']} />
         </div>
         <div className='py-3 px-2'>
-          <Dropdown title='Create' chevron={false} />
+          <Dropdown title='Create' chevron={false} items={[]}/>
         </div>
         {user != null ? null :
           <div className="flex">
             <div className='py-3 px-2'>
-              <Dropdown title='Login' chevron={false} onClick={signIn} />
+              <Dropdown title='Login' chevron={false} items={[]}/>
             </div>
             <div className='py-3 px-2'>
-              <Dropdown title='Sign Up' chevron={false} />
+              <Dropdown title='Sign Up' chevron={false} items={[]}/>
             </div>
           </div>
         }
-        <div className="mt-2" onClick={logout}>
+        {/* <div className="mt-2">
           {user != null ? <Image src={user?.photoURL} width={50} height={50} className="rounded-full cursor-pointer mt-2 mx-2 shadow-md" alt="User Photo" /> : <div></div>}
-        </div>
-      </div> */}
+        </div> */}
+      </div>
     </nav>
   );
 }
