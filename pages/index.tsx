@@ -1,11 +1,29 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-import Header from '../components/Header'
-import Navbar from '../components/Navbar'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Navbar from '../components/Navbar';
+import Header from '../components/Header';
+import BloodRequestCard from '../components/BloodRequest';
 
 const Home: NextPage = () => {
+  // Dummy data for illustration
+  const dummyRequests = Array.from({ length: 9 }, (_, index) => ({
+    patientName: 'John Doe',
+    age: 30,
+    gender: 'Male',
+    hospital: 'City Hospital',
+    contactPerson: 'Jane Doe',
+    relationship: 'Family',
+    contactNumber: '123-456-7890',
+    bloodType: 'O+',
+    quantity: 2,
+    urgency: 'Urgent',
+    dateTime: '2023-11-17 12:00 PM',
+    reason: 'Surgery',
+    medicalCondition: 'Critical',
+    address: '123 Main Street, Cityville',
+    instructions: 'Please contact immediately upon donation.',
+  }));
+
   return (
     <div>
       <Head>
@@ -15,8 +33,15 @@ const Home: NextPage = () => {
       </Head>
       <Navbar />
       <Header />
+      
+    {/* Display multiple BloodRequestCard components in a grid */}
+    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-4 p-4">
+        {dummyRequests.map((request, index) => (
+          <BloodRequestCard key={index} request={request} />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

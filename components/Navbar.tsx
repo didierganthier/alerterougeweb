@@ -60,11 +60,11 @@ export default function Navbar() {
         </div>
       </div>
       <div className={`md:flex justify-start ${user != null ? "w-[30%]" : "w-[35%]"} h-full text-sm hidden`}>
-        <div className='py-3 px-2'>
-          <Dropdown title='Organize' items={['Why The Spot', 'Pricing', 'Resources']} />
+      <div className='py-3 px-2'>
+          <Dropdown title='Donate' items={['Why Donate', 'How to Donate', 'Benefits of Donating']} />
         </div>
         <div className='py-3 px-2'>
-          <Dropdown title='Help' items={['Find your tickets', 'Contact an event organizer', 'Visit the help center']} />
+          <Dropdown title='Help' items={['Find a Donation Center', 'Contact Us', 'FAQs']} />
         </div>
         <div className='py-3 px-2'>
           <Dropdown title='Create' chevron={false} items={[]}/>
